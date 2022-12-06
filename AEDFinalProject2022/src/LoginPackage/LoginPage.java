@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package LoginPackage;
-import Employer.EmployerLandingPage;
+import Employer.EmpLandingPage;
 import com.mysql.cj.protocol.Resultset;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -238,40 +238,22 @@ public class LoginPage extends javax.swing.JFrame {
         String username = username2.getText();
         String password = password2.getText();
         String role = rolebox.getSelectedItem().toString();
-//        try{
-//            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Final_Project","root","Ankita@22");
-//            Statement st = Con.createStatement();
-//            String sql = "select UserName, Password, Role from Credentials"; 
-//            Rs = st.executeQuery(sql);
-//            while(Rs.next())
-//            {
-//                if (Rs.getString(1).equals(username) && Rs.getString(2).equals(password) && Rs.getString(3).equals(role))
-//                {
-//                           EmployerLandingPage EmployerLandingPage = new EmployerLandingPage();
-//                           EmployerLandingPage.setVisible(true);
-//                           dispose();     
-//                } 
-//                else {
-//                    JOptionPane.showMessageDialog(this, Rs.getString(1));
-//                
-//                }
-//            }
-//            Con.close();
-//            
-//        }
            try{
                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Final_Project","root","Ankita@22");
                PreparedStatement St=(PreparedStatement)
-                       Con.prepareStatement("Select * from Credentials where UserName= ? AND Password= ? AND Role= ?");
+               Con.prepareStatement("Select * from Credentials where UserName= ? AND Password= ? AND Role= ?");
                St.setString(1, username);
                St.setString(2, password);
                St.setString(3, role);
                ResultSet Rs=St.executeQuery();
                if(Rs.next()){
-                   dispose();
-                   EmployerLandingPage EmployerLandingPage = new EmployerLandingPage();
-                   EmployerLandingPage.setVisible(true);
+                   EmpLandingPage EmployerLandingScr = new EmpLandingPage();
+                   EmployerLandingScr.setVisible(true);
 //                   dispose();
+               }
+               else{
+                   JOptionPane.showMessageDialog(this, "Please Enter Valid Credentials");
+               
                }
            }
         catch(Exception e){
