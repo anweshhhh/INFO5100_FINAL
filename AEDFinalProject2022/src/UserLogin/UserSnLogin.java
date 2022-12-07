@@ -138,7 +138,7 @@ public class UserSnLogin extends javax.swing.JFrame {
                ResultSet Rs=St.executeQuery();
                if(Rs.next()){
                    JOptionPane.showMessageDialog(this, "Login Successful!"); 
-                   UserLandingPage ulp =new UserLandingPage();
+                   UserLandingP ulp =new UserLandingP();
                    ulp.setVisible(true);
                    this.dispose();
                }else{
@@ -182,7 +182,6 @@ public class UserSnLogin extends javax.swing.JFrame {
         userForget = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("STIXIntegralsSm", 1, 18)); // NOI18N
         jLabel1.setText("New here? Sign up below");
@@ -282,7 +281,7 @@ public class UserSnLogin extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(signPass)
                                 .addGap(4, 4, 4))
-                            .addComponent(signUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)))
+                            .addComponent(signUsername)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnSignup)
@@ -295,7 +294,7 @@ public class UserSnLogin extends javax.swing.JFrame {
                                 .addGap(55, 55, 55)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(uniCombo, 0, 260, Short.MAX_VALUE)
+                                        .addComponent(uniCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(8, 8, 8))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(signContact)
@@ -311,7 +310,7 @@ public class UserSnLogin extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -371,8 +370,6 @@ public class UserSnLogin extends javax.swing.JFrame {
                     .addComponent(signReset))
                 .addContainerGap(89, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 700));
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
 
@@ -446,7 +443,20 @@ public class UserSnLogin extends javax.swing.JFrame {
                 .addContainerGap(234, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(589, 0, -1, 700));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(589, 589, 589)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
         setLocationRelativeTo(null);
